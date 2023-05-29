@@ -1,0 +1,20 @@
+.table {
+    border-radius: 20px;
+    width: 80%;
+    text-align: center;
+    padding: 1.5em;
+    box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.5);
+    margin: 10vh 10vw;
+    background-color: var(--amarelo-claro);
+    overflow: hidden;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: .5em;
+}
+
+.table_header {
+    background-color: var(--preto);
+    color: var(--amarelo);
+}

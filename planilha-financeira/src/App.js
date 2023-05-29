@@ -9,7 +9,7 @@ function App() {
     <main>
       <Header />
       <Form />
-      <Table />
+      <Table funcao='Despesa' />
       <Footer />
     </main>
   );
