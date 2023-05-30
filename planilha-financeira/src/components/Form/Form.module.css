@@ -1,0 +1,75 @@
+.form {
+    display: flex;
+    gap: 1em;
+    align-items: center;
+    justify-content: center;
+    padding: 2em;
+}
+
+.botoes {
+    display: flex;
+    flex-direction: column;
+    gap: 2em;
+}
+
+button {
+    color: var(--amarelo);
+    background-color: var(--preto);
+    border: 2px solid var(--amarelo);
+    padding: .5em 1em;
+    border-radius: 2em;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+button:hover {
+    color: var(--preto);
+    background-color: var(--amarelo);
+    transition: 350ms;
+    cursor: pointer;
+    border-color: var(--preto);
+}
+
+.insideForm {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: .5em;
+    margin-left: 4em;
+}
+
+.btnr {
+    color: var(--vermelho);
+    background-color: var(--preto);
+    border: 2px solid var(--vermelho);
+    padding: .5em 1em;
+    border-radius: 2em;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.btnr:hover {
+    color: var(--preto);
+    background-color: var(--vermelho);
+    transition: 350ms;
+    cursor: pointer;
+    border-color: var(--preto);
+}
+
+.btng {
+    color: var(--verde);
+    background-color: var(--preto);
+    border: 2px solid var(--verde);
+    padding: .5em 1em;
+    border-radius: 2em;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.btng:hover {
+    color: var(--preto);
+    background-color: var(--verde);
+    transition: 350ms;
+    cursor: pointer;
+    border-color: var(--preto);
+}

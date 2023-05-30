@@ -1,13 +1,17 @@
 .table {
     border-radius: 20px;
-    width: 80%;
+    width: 100%;
     text-align: center;
     padding: 1.5em;
-    box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.5);
-    margin: 10vh 10vw;
+    box-shadow: 3px 3px 3px 1px rgba(0, 0, 0, 0.5);
+    margin: 10vh 3vw;
     background-color: var(--amarelo-claro);
     overflow: hidden;
     border-collapse: collapse;
+}
+
+.table_row:nth-child(even) {
+    background-color: var(--branco);
 }
 
 th, td {
@@ -17,4 +21,8 @@ th, td {
 .table_header {
     background-color: var(--preto);
     color: var(--amarelo);
+}
+
+.table_header th:nth-child(1) {
+    width: 40%;
 }

@@ -1,19 +1,34 @@
 import styles from './Table.module.css';
-import TableRow from './TableRow'
 
-export default function Table({ funcao }) {
+export default function Table({ funcaoDaTabela }) {
     return(
         <table className={styles.table}>
-            
-            <tr className={styles.table_header}>
-                <th>{funcao}</th>
-                <th>Valor</th>
-            </tr>
 
-            <TableRow />
-            <TableRow />
-            <TableRow />
-            <TableRow />
+            <thead className={styles.table_header}>
+                <tr>
+                    <td>{funcaoDaTabela}</td>
+                    <td>Valor</td>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr className={styles.table_row}>
+                    <td>Escola</td>
+                    <td>950,00</td>
+                </tr>
+                <tr className={styles.table_row}>
+                    <td>Escola</td>
+                    <td>950,00</td>
+                </tr>
+                <tr className={styles.table_row}>
+                    <td>Escola</td>
+                    <td>950,00</td>
+                </tr>
+                <tr className={styles.table_row}>
+                    <td>Escola</td>
+                    <td>950,00</td>
+                </tr>
+            </tbody>
         </table>
     )
 }
