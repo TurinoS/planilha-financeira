@@ -1,6 +1,6 @@
 import styles from './Table.module.css';
 
-export default function Table({ funcaoDaTabela }) {
+export default function Table({ funcaoDaTabela, data }) {
     return(
         <table className={styles.table}>
 
@@ -12,22 +12,12 @@ export default function Table({ funcaoDaTabela }) {
             </thead>
 
             <tbody>
-                <tr className={styles.table_row}>
-                    <td>Escola</td>
-                    <td>950,00</td>
-                </tr>
-                <tr className={styles.table_row}>
-                    <td>Escola</td>
-                    <td>950,00</td>
-                </tr>
-                <tr className={styles.table_row}>
-                    <td>Escola</td>
-                    <td>950,00</td>
-                </tr>
-                <tr className={styles.table_row}>
-                    <td>Escola</td>
-                    <td>950,00</td>
-                </tr>
+                {data.map((d) => (
+                    <tr key={data.id} className={styles.table_row}>
+                        <td>{d.nome}</td>
+                        <td>{d.valor}</td>
+                    </tr>
+                ))}                               
             </tbody>
         </table>
     )

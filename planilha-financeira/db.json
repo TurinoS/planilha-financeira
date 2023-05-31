@@ -1,4 +1,41 @@
 {
-    "receitas": [],
-    "despesas": []
+    "receitas": [
+        {
+            "id": 1,
+            "nome": "Venda do carro",
+            "valor": 7500.00
+        },
+        {
+            "id": 2,
+            "nome": "Projeto do Marcelo",
+            "valor": 1300.00
+        },
+        {
+            "id": 3,
+            "nome": "Venda do playstation",
+            "valor": 3250.00
+        },
+        {
+            "id": 4,
+            "nome": "Mega-sena",
+            "valor": 45000000.00
+        }
+    ],
+    "despesas": [
+        {
+            "id": 1,
+            "nome": "Escola Emanuel",
+            "valor": 860.00
+        },
+        {
+            "id": 2,
+            "nome": "Unimed",
+            "valor": 1200.00
+        },
+        {
+            "id": 3,
+            "nome": "Gasolina",
+            "valor": 300.00
+        }
+    ]
 }

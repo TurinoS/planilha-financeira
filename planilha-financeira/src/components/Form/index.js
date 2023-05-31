@@ -3,10 +3,13 @@ import React, { useState } from 'react';
 
 export default function Form() {
 
-    const [showFormDespesa, setShowFormDespesa] = useState(false)
     const [showFormReceita, setShowFormReceita] = useState(true)
-    
+    const [showFormDespesa, setShowFormDespesa] = useState(false)
 
+    const [nomeReceita, setNomeReceita] = useState()
+    const [nomeDespesa, setNomeDespesa] = useState()
+    const [valor, setValor] = useState()
+    
     function mostrarFormDespesa(e) {
         e.preventDefault();
         setShowFormDespesa(true);
@@ -25,10 +28,6 @@ export default function Form() {
         console.log(nomeDespesa);
         console.log(valor)
     }
-
-    const [nomeReceita, setNomeReceita] = useState()
-    const [nomeDespesa, setNomeDespesa] = useState()
-    const [valor, setValor] = useState()
 
     return(
         <form onSubmit={adicionaNaPlanilha} className={styles.form}>
