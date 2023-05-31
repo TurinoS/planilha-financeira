@@ -36,6 +36,7 @@ button:hover {
     align-items: flex-end;
     gap: .5em;
     margin-left: 4em;
+    width: 276px;
 }
 
 .btnr {
@@ -64,6 +65,7 @@ button:hover {
     border-radius: 2em;
     font-size: 18px;
     font-weight: 600;
+    width: 200px;
 }
 
 .btng:hover {
