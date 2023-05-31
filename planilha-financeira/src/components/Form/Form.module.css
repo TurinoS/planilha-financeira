@@ -73,3 +73,20 @@ button:hover {
     cursor: pointer;
     border-color: var(--preto);
 }
+
+.campo {
+    display: flex;
+    align-items: center;
+    gap: .5em;
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.campo input {
+    padding: .5em;
+    border-radius: 1em;
+}
+
+.campo label {
+    text-transform: capitalize;
+}

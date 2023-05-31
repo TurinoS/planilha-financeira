@@ -1,4 +1,3 @@
-import CampoInput from '../CampoInput';
 import styles from './Form.module.css';
 import React, { useState } from 'react';
 
@@ -22,15 +21,14 @@ export default function Form() {
 
     function adicionaNaPlanilha(e) {
         e.preventDefault();
-        console.log(receita)
+        console.log(nomeReceita)
+        console.log(nomeDespesa);
+        console.log(valor)
     }
 
-    const [receita, setReceita] = useState()
-    const [valor, setValor] = useState("")
-
-    function changeReceita(event) {
-        setReceita(event.target.value)
-    }
+    const [nomeReceita, setNomeReceita] = useState()
+    const [nomeDespesa, setNomeDespesa] = useState()
+    const [valor, setValor] = useState()
 
     return(
         <form onSubmit={adicionaNaPlanilha} className={styles.form}>
@@ -41,21 +39,39 @@ export default function Form() {
 
             {
                 showFormDespesa && !showFormReceita ? 
-                <div className={styles.insideForm}>
-                    <CampoInput  type='text' label='Despesa' placeholder="Nome da despesa" />
-                    <CampoInput type='number' label='Valor' />
-                    <input className={styles.btnr} type='submit' value='Adicionar despesa' />
-                </div> 
+                    <div className={styles.insideForm}>
+                        
+                        <div className={styles.campo}>
+                            <label htmlFor='despesa'>Despesa:</label>
+                            <input onChange={(e) => setNomeDespesa(e.target.value)} type='text' name='despesa' id='despesa' placeholder='Nome da despesa...' />
+                        </div>
+
+                        <div className={styles.campo}>
+                            <label htmlFor='valor'>Valor:</label>
+                            <input onChange={(e) => setValor(e.target.value)} type='number' name='valor' id='valor' placeholder='Valor da despesa...' />
+                        </div>
+
+                        <input className={styles.btnr} type='submit' value='Adicionar despesa' />
+                    </div> 
                 : null
             }
                         
             {
                 showFormReceita && !showFormDespesa ? 
-                <div className={styles.insideForm}>
-                    <CampoInput onChange={changeReceita} type='text' label='Receita' placeholder="Nome da receita" />
-                    <CampoInput type='number' label='Valor' />
-                    <input className={styles.btng} type='submit' value='Adicionar receita' />
-                </div> 
+                    <div className={styles.insideForm}>
+                        
+                        <div className={styles.campo}>
+                            <label htmlFor='receita'>Receita:</label>
+                            <input  onChange={(e) => setNomeReceita(e.target.value)} type='text' name='receita' id='receita' placeholder='Nome da receita...' />
+                        </div>
+
+                        <div className={styles.campo}>
+                            <label htmlFor='valor'>Valor:</label>
+                            <input onChange={(e) => setValor(e.target.value)} type='number' name='valor' id='valor' placeholder='Valor da receita...' />
+                        </div>
+
+                        <input className={styles.btng} type='submit' value='Adicionar receita' />
+                    </div>
                 : null
             }
         </form>
