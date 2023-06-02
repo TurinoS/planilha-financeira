@@ -1,4 +1,5 @@
 import styles from './Table.module.css';
+import { FaTrashAlt } from 'react-icons/fa';
 
 export default function Table({ funcaoDaTabela, data }) {
     return(
@@ -8,14 +9,16 @@ export default function Table({ funcaoDaTabela, data }) {
                 <tr>
                     <td>{funcaoDaTabela}</td>
                     <td>Valor</td>
+                    <td>Excluir</td>
                 </tr>
             </thead>
 
             <tbody>
-                {data.map((d) => (
-                    <tr key={data.id} className={styles.table_row}>
-                        <td>{d.nome}</td>
-                        <td>{d.valor}</td>
+                {data.map((dados) => (
+                    <tr key={dados.id} className={styles.table_row}>
+                        <td>{dados.nome}</td>
+                        <td>{dados.valor}</td>
+                        <td><FaTrashAlt className={styles.icon} /></td>
                     </tr>
                 ))}                               
             </tbody>
