@@ -54,9 +54,6 @@ export default function Form({ despesasAnteriores, receitasAnteriores, valoresAn
             },
             body: JSON.stringify(novaReceita),
         })
-            .then((r) => r.json())
-            .then((data) => console.log(data))
-            .catch(err => console.log(err))
     }
 
     return(

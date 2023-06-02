@@ -5,7 +5,6 @@ import Form from './components/Form';
 import Header from "./components/Header";
 import Table from "./components/Table";
 
-
 function App() {
 
   const [receitaTableRow, setReceitaTableRow] = useState([])
@@ -39,6 +38,15 @@ function App() {
       .catch((err) => console.log(err))
   }, [])
 
+  const removeRow = (funcaoDaTabela, id) =>  {
+    fetch(`http://localhost:5000/${funcaoDaTabela}/${id}`, {
+        method: 'DELETE',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+    })
+}
+
   return (
     <main>
       <Header />
@@ -46,8 +54,8 @@ function App() {
       <Form />
 
       <section className={styles.tables} >
-        <Table funcaoDaTabela='Receita' data={receitaTableRow} />
-        <Table funcaoDaTabela='Despesa' data={despesaTableRow} />
+        <Table funcaoDaTabela='Receitas' data={receitaTableRow} removeRow={removeRow} />
+        <Table funcaoDaTabela='Despesas' data={despesaTableRow} removeRow={removeRow}/>
       </section>
 
       <Footer />

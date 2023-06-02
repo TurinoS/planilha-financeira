@@ -1,7 +1,7 @@
 import styles from './Table.module.css';
 import { FaTrashAlt } from 'react-icons/fa';
 
-export default function Table({ funcaoDaTabela, data }) {
+export default function Table({ funcaoDaTabela, data, removeRow }) {
     return(
         <table className={styles.table}>
 
@@ -18,7 +18,7 @@ export default function Table({ funcaoDaTabela, data }) {
                     <tr key={dados.id} className={styles.table_row}>
                         <td>{dados.nome}</td>
                         <td>{dados.valor}</td>
-                        <td><FaTrashAlt className={styles.icon} /></td>
+                        <td><button onClick={() => removeRow(funcaoDaTabela, dados.id)} className={styles.icon}><FaTrashAlt /></button></td>
                     </tr>
                 ))}                               
             </tbody>
