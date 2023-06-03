@@ -18,7 +18,11 @@ export default function Table({ funcaoDaTabela, data, removeRow }) {
                     <tr key={dados.id} className={styles.table_row}>
                         <td>{dados.nome}</td>
                         <td>{dados.valor}</td>
-                        <td><button onClick={() => removeRow(funcaoDaTabela, dados.id)} className={styles.icon}><FaTrashAlt /></button></td>
+                        <td>
+                            <button onClick={() => removeRow(funcaoDaTabela, dados.id)} className={styles.icon}>
+                                    <FaTrashAlt />
+                            </button>
+                        </td>
                     </tr>
                 ))}                               
             </tbody>

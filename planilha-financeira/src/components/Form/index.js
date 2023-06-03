@@ -1,7 +1,7 @@
 import styles from './Form.module.css';
 import React, { useState } from 'react';
 
-export default function Form({ despesasAnteriores, receitasAnteriores, valoresAnteriores}) {
+export default function Form() {
 
     const [showFormReceita, setShowFormReceita] = useState(true)
     const [showFormDespesa, setShowFormDespesa] = useState(false)
@@ -25,7 +25,7 @@ export default function Form({ despesasAnteriores, receitasAnteriores, valoresAn
 
     function submitDespesa(e) {
         e.preventDefault()
-        let novaDespesa = {
+        const novaDespesa = {
             nome: nomeDespesa,
             valor: valorDespesa
         }
@@ -36,14 +36,12 @@ export default function Form({ despesasAnteriores, receitasAnteriores, valoresAn
             },
             body: JSON.stringify(novaDespesa),
         })
-            .then((r) => r.json())
-            .then((data) => console.log(data))
-            .catch(err => console.log(err))
+        .catch(err => console.log(err))
     }
 
     function submitReceita(e) {
         e.preventDefault()
-        let novaReceita = {
+        const novaReceita = {
             nome: nomeReceita,
             valor: valorReceita
         }
@@ -53,7 +51,7 @@ export default function Form({ despesasAnteriores, receitasAnteriores, valoresAn
                 'Content-type': 'application/json'
             },
             body: JSON.stringify(novaReceita),
-        })
+        }).catch(err => console.log(err))
     }
 
     return(
