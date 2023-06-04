@@ -22,7 +22,7 @@ function App() {
             'Content-Type': 'application/json'
         },
     })
-}
+  }
 
   return (
     <main>
@@ -32,7 +32,7 @@ function App() {
 
       <section className={styles.tables} >
         <Table funcaoDaTabela='Receitas' data={receitaTableRow} removeRow={removeRow} />
-        <Table funcaoDaTabela='Despesas' data={despesaTableRow} removeRow={removeRow}/>
+        <Table funcaoDaTabela='Despesas' data={despesaTableRow} removeRow={removeRow} />
       </section>
 
       <Footer />

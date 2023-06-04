@@ -9,6 +9,11 @@
       "nome": "Venda de bolos",
       "valor": "1500",
       "id": 2
+    },
+    {
+      "nome": "Venda do carro",
+      "valor": "45000",
+      "id": 3
     }
   ],
   "despesas": [

@@ -1,3 +1,5 @@
+import TableRenderDespesas from '../TableRenderDespesas';
+import TableRenderReceitas from '../TableRenderReceitas';
 import styles from './Form.module.css';
 import React, { useState } from 'react';
 
@@ -23,9 +25,19 @@ export default function Form() {
         setShowFormDespesa(false);
     }
 
+    let novaDespesa = {
+        nome: nomeDespesa,
+        valor: valorDespesa
+    }
+
+    let novaReceita = {
+        nome: nomeReceita,
+        valor: valorReceita
+    }
+
     function submitDespesa(e) {
         e.preventDefault()
-        const novaDespesa = {
+        novaDespesa = {
             nome: nomeDespesa,
             valor: valorDespesa
         }
@@ -36,12 +48,13 @@ export default function Form() {
             },
             body: JSON.stringify(novaDespesa),
         })
+        .then(TableRenderDespesas(novaDespesa))
         .catch(err => console.log(err))
     }
 
     function submitReceita(e) {
         e.preventDefault()
-        const novaReceita = {
+        novaReceita = {
             nome: nomeReceita,
             valor: valorReceita
         }
@@ -51,7 +64,9 @@ export default function Form() {
                 'Content-type': 'application/json'
             },
             body: JSON.stringify(novaReceita),
-        }).catch(err => console.log(err))
+        })
+        .then(TableRenderReceitas(novaReceita))
+        .catch(err => console.log(err))
     }
 
     return(
