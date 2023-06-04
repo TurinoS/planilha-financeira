@@ -1,7 +1,11 @@
+import { useEffect } from 'react';
 import styles from './Table.module.css';
 import { FaTrashAlt } from 'react-icons/fa';
 
-export default function Table({ funcaoDaTabela, data, removeRow }) {
+export default function Table({ funcaoDaTabela, data, removeRow, submited }) {
+
+    useEffect(() => {}, [submited])
+
     return(
         <table className={styles.table}>
 

@@ -1,19 +1,46 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import styles from './App.module.css';
 import Footer from "./components/Footer";
 import Form from './components/Form';
 import Header from "./components/Header";
 import Table from "./components/Table";
-import TableRenderReceitas from './components/TableRenderReceitas';
-import TableRenderDespesas from './components/TableRenderDespesas';
+import { FormContextProvider } from './Hooks/FormContext';
 
 function App() {
 
   const [receitaTableRow, setReceitaTableRow] = useState([])
   const [despesaTableRow, setDespesaTableRow] = useState([])
 
-  TableRenderReceitas(setReceitaTableRow);
-  TableRenderDespesas(setDespesaTableRow);
+  const [submited, setSubmited] = useState(false)
+
+  useEffect(() => {
+    fetch('http://localhost:5000/receitas', {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+    })
+    .then((resp) => resp.json())
+    .then((data) => {
+        setReceitaTableRow(data)
+    })
+    .catch((err) => console.log(err))
+    }, [setReceitaTableRow, submited])
+
+
+  useEffect(() => {
+    fetch('http://localhost:5000/despesas', {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+    })
+    .then((resp) => resp.json())
+    .then((data) => {
+        setDespesaTableRow(data)
+    })
+    .catch((err) => console.log(err))
+    }, [setDespesaTableRow, submited])
 
   const removeRow = (funcaoDaTabela, id) =>  {
     fetch(`http://localhost:5000/${funcaoDaTabela}/${id}`, {
@@ -22,19 +49,27 @@ function App() {
             'Content-Type': 'application/json'
         },
     })
+    
+    if(funcaoDaTabela === 'Despesas') {
+      const novaListaTransacoes = despesaTableRow.filter(transacao => transacao.id !== id);
+      setDespesaTableRow(novaListaTransacoes);
+    } else if(funcaoDaTabela === 'Receitas') {
+      const novaListaTransacoes = receitaTableRow.filter(transacao => transacao.id !== id);
+      setReceitaTableRow(novaListaTransacoes);
+    }
   }
 
   return (
     <main>
       <Header />
-
-      <Form />
+      <FormContextProvider>
+      <Form submited={submited} setSubmited={setSubmited} />
 
       <section className={styles.tables} >
-        <Table funcaoDaTabela='Receitas' data={receitaTableRow} removeRow={removeRow} />
-        <Table funcaoDaTabela='Despesas' data={despesaTableRow} removeRow={removeRow} />
+        <Table submited={submited} funcaoDaTabela='Receitas' data={receitaTableRow} removeRow={removeRow} />
+        <Table submited={submited} funcaoDaTabela='Despesas' data={despesaTableRow} removeRow={removeRow} />
       </section>
-
+      </FormContextProvider>
       <Footer />
     </main>
   );

@@ -1,9 +1,7 @@
-import TableRenderDespesas from '../TableRenderDespesas';
-import TableRenderReceitas from '../TableRenderReceitas';
 import styles from './Form.module.css';
 import React, { useState } from 'react';
 
-export default function Form() {
+export default function Form({ setSubmited }) {
 
     const [showFormReceita, setShowFormReceita] = useState(true)
     const [showFormDespesa, setShowFormDespesa] = useState(false)
@@ -25,19 +23,9 @@ export default function Form() {
         setShowFormDespesa(false);
     }
 
-    let novaDespesa = {
-        nome: nomeDespesa,
-        valor: valorDespesa
-    }
-
-    let novaReceita = {
-        nome: nomeReceita,
-        valor: valorReceita
-    }
-
     function submitDespesa(e) {
         e.preventDefault()
-        novaDespesa = {
+        let novaDespesa = {
             nome: nomeDespesa,
             valor: valorDespesa
         }
@@ -48,13 +36,13 @@ export default function Form() {
             },
             body: JSON.stringify(novaDespesa),
         })
-        .then(TableRenderDespesas(novaDespesa))
+        .then(setSubmited(true))
         .catch(err => console.log(err))
     }
 
     function submitReceita(e) {
         e.preventDefault()
-        novaReceita = {
+        let novaReceita = {
             nome: nomeReceita,
             valor: valorReceita
         }
@@ -65,7 +53,7 @@ export default function Form() {
             },
             body: JSON.stringify(novaReceita),
         })
-        .then(TableRenderReceitas(novaReceita))
+        .then(setSubmited(true))
         .catch(err => console.log(err))
     }
 
@@ -88,7 +76,10 @@ export default function Form() {
                                 name='despesa' 
                                 id='despesa' 
                                 placeholder='Nome da despesa...'
-                                onChange={(e) => setNomeDespesa(e.target.value)} 
+                                onChange={(e) => {
+                                    setNomeDespesa(e.target.value)
+                                    setSubmited(false)
+                                }} 
                             />
                         </div>
 
@@ -100,7 +91,10 @@ export default function Form() {
                                 name='valor' 
                                 id='valor' 
                                 placeholder='Valor da despesa...'
-                                onChange={(e) => setValorDespesa(e.target.value)}  
+                                onChange={(e) => {
+                                    setValorDespesa(e.target.value)
+                                    setSubmited(false)
+                                }}  
                             />
                         </div>
 

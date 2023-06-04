@@ -1,31 +1,26 @@
 {
   "receitas": [
     {
-      "nome": "Pintura Escolinha Emanuel",
-      "valor": "13000",
-      "id": 1
+      "nome": "Pintura Escolinha Samuel",
+      "valor": "7895",
+      "id": 10
     },
     {
       "nome": "Venda de bolos",
-      "valor": "1500",
-      "id": 2
-    },
-    {
-      "nome": "Venda do carro",
-      "valor": "45000",
-      "id": 3
+      "valor": "450",
+      "id": 11
     }
   ],
   "despesas": [
     {
-      "nome": "Unimed",
-      "valor": "750",
-      "id": 1
+      "nome": "Escola do filho",
+      "valor": "789",
+      "id": 16
     },
     {
-      "nome": "Gasolina",
-      "valor": "340",
-      "id": 2
+      "nome": "Unimed",
+      "valor": "780",
+      "id": 17
     }
   ]
 }
