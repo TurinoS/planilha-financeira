@@ -29,7 +29,7 @@ export default function Form({ setSubmited }) {
             nome: nomeDespesa,
             valor: valorDespesa
         }
-        fetch('http://localhost:5000/despesas', {
+        fetch('https://my-json-server.typicode.com/TurinoS/planilha-financeira-api/despesas', {
             method: 'POST',
             headers: {
                 'Content-type': 'application/json'
@@ -46,7 +46,7 @@ export default function Form({ setSubmited }) {
             nome: nomeReceita,
             valor: valorReceita
         }
-        fetch('http://localhost:5000/receitas', {
+        fetch('http://localhost:5000/receitashttps://my-json-server.typicode.com/TurinoS/planilha-financeira-api/receitas', {
             method: 'POST',
             headers: {
                 'Content-type': 'application/json'

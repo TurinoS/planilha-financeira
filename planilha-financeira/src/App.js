@@ -14,7 +14,7 @@ function App() {
   const [submited, setSubmited] = useState(false)
 
   useEffect(() => {
-    fetch('http://localhost:5000/receitas', {
+    fetch('https://my-json-server.typicode.com/TurinoS/planilha-financeira-api/receitas', {
         method: 'GET',
         headers: {
             'Content-Type': 'application/json',
@@ -29,7 +29,7 @@ function App() {
 
 
   useEffect(() => {
-    fetch('http://localhost:5000/despesas', {
+    fetch('https://my-json-server.typicode.com/TurinoS/planilha-financeira-api/despesas', {
         method: 'GET',
         headers: {
             'Content-Type': 'application/json',
@@ -43,7 +43,7 @@ function App() {
     }, [setDespesaTableRow, submited])
 
   const removeRow = (funcaoDaTabela, id) =>  {
-    fetch(`http://localhost:5000/${funcaoDaTabela}/${id}`, {
+    fetch(`https://my-json-server.typicode.com/TurinoS/planilha-financeira-api/${funcaoDaTabela}/${id}`, {
         method: 'DELETE',
         headers: {
             'Content-Type': 'application/json'
